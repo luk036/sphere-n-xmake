@@ -28,4 +28,4 @@ jobs:
           xmake --version
           xmake f -m release -y
           xmake
-          xmake run test_lds
+          xmake run test_sphere_n
