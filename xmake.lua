@@ -10,17 +10,17 @@ if is_mode("coverage") then
     add_cxflags("-ftest-coverage", "-fprofile-arcs", {force = true})
 end
 
-target("Lds")
+target("SphereN")
     set_kind("static")
-    add_includedirs("include", {public = true})
+    add_includedirs("include", "lds-xmake/include", {public = true})
     add_files("src/*.cpp")
     add_packages("ms-gsl")
     add_packages("xtensor")
 
-target("test_lds")
+target("test_sphere_n")
     set_kind("binary")
-    add_deps("Lds")
-    add_includedirs("include", {public = true})
+    add_deps("SphereN")
+    add_includedirs("include", "lds-xmake/include", {public = true})
     add_files("tests/*.cpp")
     add_packages("ms-gsl", "doctest", "xtensor")
 

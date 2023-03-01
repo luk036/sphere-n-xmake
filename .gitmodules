@@ -1,0 +1,3 @@
+[submodule "lds-xmake"]
+	path = lds-xmake
+	url = https://github.com/luk036/lds-xmake

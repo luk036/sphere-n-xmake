@@ -20,17 +20,18 @@ jobs:
       - uses: xmake-io/github-action-setup-xmake@master
         with:
           xmake-version: ${{ matrix.version }}
-      - name: Install Conan
-        id: conan
-        uses: turtlebrowser/get-conan@main
-      - name: Conan version
-        run: echo "${{ steps.conan.outputs.version }}"
+      # - name: Install Conan
+      #   id: conan
+      #   uses: turtlebrowser/get-conan@main
+      # - name: Conan version
+      #   run: echo "${{ steps.conan.outputs.version }}"
 
       - name: Install dependency
         run: sudo apt-get install lcov
 
       - name: Run tests
         run: |
+          git submodule update --init
           xmake --version
           xmake f -m coverage -y
           xmake
