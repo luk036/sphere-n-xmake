@@ -10,6 +10,12 @@ if is_mode("coverage") then
     add_cxflags("-ftest-coverage", "-fprofile-arcs", {force = true})
 end
 
+if is_plat("linux") then
+    set_warnings("all", "error")
+    add_cxflags("-Wconversion", {force = true})
+    -- add_cxflags("-fconcepts", {force = true})
+end
+
 target("SphereN")
     set_kind("static")
     add_includedirs("include", "lds-xmake/include", {public = true})

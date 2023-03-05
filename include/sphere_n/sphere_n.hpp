@@ -19,51 +19,51 @@ using gsl::span;
 using std::array;
 using std::vector;
 
-/**
- * @brief Halton(n) sequence generator
- *
- */
-class HaltonN {
-private:
-  vector<Vdcorput> vdcs;
-
-public:
-  /**
-   * @brief Construct a new Halton N object
-   *
-   * @param[in] base
-   */
-  explicit HaltonN(span<const size_t> base) {
-    for (const auto &b : base) {
-      this->vdcs.emplace_back(Vdcorput(b));
-    }
-  }
-
-  /**
-   * @brief
-   *
-   * @return vector<double>
-   */
-  auto pop() -> vector<double> {
-    auto res = vector<double>{};
-    for (auto &vdc : this->vdcs) {
-      res.emplace_back(vdc.pop());
-    }
-    return res;
-  }
-
-  /**
-   * @brief
-   *
-   * @param[in] seed
-   */
-  auto reseed(size_t seed) -> void {
-    for (auto &vdc : this->vdcs) {
-      vdc.reseed(seed);
-    }
-  }
-};
-
+// /**
+//  * @brief Halton(n) sequence generator
+//  *
+//  */
+// class HaltonN {
+// private:
+//   vector<Vdcorput> vdcs;
+//
+// public:
+//   /**
+//    * @brief Construct a new Halton N object
+//    *
+//    * @param[in] base
+//    */
+//   explicit HaltonN(span<const size_t> base) {
+//     for (const auto &b : base) {
+//       this->vdcs.emplace_back(Vdcorput(b));
+//     }
+//   }
+//
+//   /**
+//    * @brief
+//    *
+//    * @return vector<double>
+//    */
+//   auto pop() -> vector<double> {
+//     auto res = vector<double>{};
+//     for (auto &vdc : this->vdcs) {
+//       res.emplace_back(vdc.pop());
+//     }
+//     return res;
+//   }
+//
+//   /**
+//    * @brief
+//    *
+//    * @param[in] seed
+//    */
+//   auto reseed(size_t seed) -> void {
+//     for (auto &vdc : this->vdcs) {
+//       vdc.reseed(seed);
+//     }
+//   }
+// };
+//
 class CylinN;
 
 using CylinVariant =
